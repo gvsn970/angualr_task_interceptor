@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+
+        </div>
+        <div class="col-sm">
+
+            <form [formGroup]="form" (ngSubmit)="sendOTP()">
+                <div class="form-group">
+                    <label for="exampleInputEmail1"> Mobile Number</label>
+                    <input formControlName="phone" type="text" class="form-control">
+
+                </div>
+                <div *ngIf="f.phone.touched && f.phone.invalid" class="alert alert-danger">
+                    <div *ngIf="f.phone.errors?.required">Mobile Number is required.</div>
+                    <div *ngIf="f.phone.errors?.pattern">Please, Enter 10 digit Mobile Number.</div>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Get Otp</button>
+            </form>
+            <div> <a routerLink="/verifyotp">{{message}}</a></div>
+
+        </div>
+        <div class="col-sm">
+
+        </div>
+    </div>

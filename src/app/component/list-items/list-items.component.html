@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">product</th>
+                    <th scope="col">category</th>
+                    <th scope="col">discountedPrice</th>
+                    <th scope="col">unit</th>
+                    <th scope="col">MRP</th>
+                </tr>
+            </thead>
+            <tbody>
+                <div *ngIf="data.length == 0" style="text-align: center;">
+                    <span style="color: red;font-size: large;font-weight: bold;">No Data Found</span>
+                </div>
+                <tr *ngFor="let product of data; index as i">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{product.title}}</td>
+                    <td>{{product.product}}</td>
+                    <td>{{product.category}}</td>
+                    <td>{{product.discountedPrice}}</td>
+                    <td>{{product.unit}}</td>
+                    <td>{{product.mrp}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <button [routerLink]="['/push-items']" class="btn btn-primary">add items </button>
+</div>
